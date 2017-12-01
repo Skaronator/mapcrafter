@@ -21,8 +21,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD render.sh /render/render.sh
-RUN chmod 0777 /render
+ADD render.sh /render.sh
+RUN chmod +x /render.sh
 ADD render.conf /
 
-CMD ["/render/render.sh"]
+CMD ["/render.sh"]
