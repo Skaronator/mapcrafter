@@ -3,6 +3,8 @@ MAINTAINER skaronator
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /
+ENV THREADS 4
+ENV RUN_EVERY_SEC 600
 
 VOLUME ["/config"]
 VOLUME ["/output"]
@@ -22,7 +24,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD render.sh /render
-RUN chmod +x /render/render.sh
+RUN chmod 0777 /render
 ADD render.conf /
 
 CMD ["/render/render.sh"]
