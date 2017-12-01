@@ -1,5 +1,5 @@
 FROM ubuntu:17.04
-MAINTAINER muebau <hb1c@gmx.net>
+MAINTAINER skaronator
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /
@@ -21,12 +21,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD crontab /etc/cron.d/mapcrafter-cron
-RUN chmod 0644 /etc/cron.d/mapcrafter-cron
-RUN touch /var/log/cron.log
-
-ADD render.sh /render
-RUN chmod 0777 /render
+ADD render.sh /
 ADD render.conf /
 
-CMD cron && tail -f /var/log/cron.log
+RUN /render.sh

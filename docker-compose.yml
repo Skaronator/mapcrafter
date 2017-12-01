@@ -9,3 +9,4 @@ services:
       - "world:/world"
     environment:
       THREADS: 4
+      RUN_EVERY_SEC: 600

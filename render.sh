@@ -4,6 +4,10 @@ if [ ! -f /config/render.conf ]; then
     cp /render.conf /config/render.conf
 fi
 
-echo "Starting mapcrafter with $THREADS threads!"
+echo "Starting mapcrafter with $THREADS threads and timeout of $RUN_EVERY_SEC seconds!"
 
-mapcrafter -c /config/render.conf -j $THREADS >> /var/log/cron.log 2>&1
+while true
+do
+	mapcrafter -c /config/render.conf -j $THREADS
+	sleep $RUN_EVERY_SEC
+done
