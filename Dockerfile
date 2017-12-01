@@ -27,4 +27,4 @@ ADD render.sh /render
 RUN chmod 0777 /render
 ADD render.conf /
 
-CMD ["/render/render.sh"]
+CMD /render´
