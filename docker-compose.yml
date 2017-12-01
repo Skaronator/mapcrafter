@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  minecraft:
+    image: skaronator/mapcrafter
+    volumes:
+      - "config:/config"
+      - "output:/output"
+      - "world:/world"
+    environment:
+      THREADS: 4
