@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  minecraft:
+  mapcrafter:
     image: skaronator/mapcrafter
     volumes:
       - "config:/config"
