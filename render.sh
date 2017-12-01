@@ -9,5 +9,8 @@ echo "Starting mapcrafter with $THREADS threads and timeout of $RUN_EVERY_SEC se
 while true
 do
 	mapcrafter -c /config/render.conf -j $THREADS
+	if [ "$RUN_EVERY_SEC" -eq "0" ]; then
+		exit
+	fi
 	sleep $RUN_EVERY_SEC
 done
